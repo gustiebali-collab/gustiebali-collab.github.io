@@ -16,15 +16,22 @@
   .loader { position: fixed; inset: 0; display: grid; place-items: center; font: 600 15px system-ui, sans-serif; color: #8b90a5; }
   .loader div { width: 42px; height: 42px; border-radius: 50%; border: 3px solid rgba(255,255,255,.1); border-top-color: #7c5cff; animation: spin .8s linear infinite; margin: 0 auto 14px; }
   @keyframes spin { to { transform: rotate(360deg); } }
+  .loader a { display: none; margin-top: 18px; padding: 10px 18px; border-radius: 12px; background: #7c5cff; color: #fff; text-decoration: none; font-weight: 700; }
+  .loader.slow a { display: inline-block; }
+  .loader.slow small { display: block; }
+  .loader small { display: none; margin-top: 10px; font-weight: 500; }
+  .loader.hide { display: none; }
   @media (prefers-color-scheme: light) { html, body { background: #f5f6fb; } }
 </style>
 </head>
 <body>
-  <div class="loader"><span><div></div>Memuat Gustie Bali Store…</span></div>
+  <div class="loader" id="loader"><span style="text-align:center"><div></div>Memuat Gustie Bali Store…<small>Butuh waktu lebih lama dari biasanya.</small><a href="https://script.google.com/macros/s/AKfycbxH5hZgkGISHBIplvwe7SP3CCrRts-9UnOUUnapCRp0JH38SBP3fwph4MIz0HPsX7xC/exec" target="_top">Buka langsung</a></span></div>
   <iframe
     src="https://script.google.com/macros/s/AKfycbxH5hZgkGISHBIplvwe7SP3CCrRts-9UnOUUnapCRp0JH38SBP3fwph4MIz0HPsX7xC/exec"
     title="Gustie Bali Store"
-    allow="clipboard-write; fullscreen"></iframe>
+    allow="clipboard-write; fullscreen"
+    onload="document.getElementById('loader').classList.add('hide')"></iframe>
   <noscript><p style="color:#fff;text-align:center"><a href="https://script.google.com/macros/s/AKfycbxH5hZgkGISHBIplvwe7SP3CCrRts-9UnOUUnapCRp0JH38SBP3fwph4MIz0HPsX7xC/exec">Buka Gustie Bali Store</a></p></noscript>
+  <script>setTimeout(function () { var l = document.getElementById('loader'); if (!l.classList.contains('hide')) l.classList.add('slow'); }, 8000);</script>
 </body>
 </html>
